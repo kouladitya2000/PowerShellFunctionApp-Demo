@@ -1,10 +1,10 @@
 name: Deploy PowerShell Azure Function App
 
 on:
-  workflow_dispatch:    # Manually run from GitHub UI
+  workflow_dispatch:
   push:
     branches:
-      - main            # Auto-trigger on push to main
+      - main
 
 jobs:
   deploy:
@@ -21,7 +21,7 @@ jobs:
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-        auth-type: service-principal      # ✅ This is important
+        auth-type: SERVICE_PRINCIPAL    
 
     - name: Zip the Azure Function code
       run: |
